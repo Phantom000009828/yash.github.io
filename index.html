@@ -5,6 +5,46 @@
 <title>Nivrashu Saini | SOC Analyst Portfolio</title>
 
 <style>
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 64px;
+  color: #22d3ee;
+  text-shadow: 0 0 25px rgba(34,211,238,0.6);
+}
+
+.hero h2 {
+  margin-top: 10px;
+  color: #e5e7eb;
+  font-size: 22px;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.hero-buttons a {
+  margin: 10px;
+  padding: 14px 26px;
+  border-radius: 40px;
+  border: 1px solid #22d3ee;
+  color: #22d3ee;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-buttons a:hover {
+  background: #22d3ee;
+  color: #020617;
+  box-shadow: 0 0 25px rgba(34,211,238,0.6);
+}
 
 
 
@@ -191,6 +231,29 @@ section h2 {
 
 <body>
 
+
+  <canvas id="bg #bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+"></canvas>
+  
+
+<section class="hero">
+  <h1 class="glow">Nivrashu Saini</h1>
+  <h2 class="typing"></h2>
+
+  <div class="hero-buttons">
+    <a href="#projects">View Projects</a>
+    <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">LinkedIn</a>
+  </div>
+</section>
+  
+
+
+
+  
 <div class="wrapper">
 
   <!-- SIDEBAR -->
@@ -247,6 +310,20 @@ section h2 {
 
   </div>
 </div>
+<script>
+const text = "SOC Analyst L1 | Linux | SIEM | Threat Detection";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.querySelector(".typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 70);
+  }
+}
+type();
+</script>
 
 </body>
+
+  
 </html>
