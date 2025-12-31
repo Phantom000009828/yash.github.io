@@ -2,246 +2,249 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yash | SOC Analyst Portfolio</title>
-  <meta name="description" content="SOC Analyst portfolio—incident response, threat hunting, SIEM dashboards, certifications, and projects." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-<style>
-  :root {
-  --bg: #0b0f14; --card: #11161d; --glass: rgba(255,255,255,0.06);
-  --text: #e6edf3; --muted: #9aa7b2; --accent: #6ae3ff; --accent-2: #7cffb2;
-  --border: #1f2a36; --shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: radial-gradient(1200px 600px at 10% 10%, #0b0f14 0%, #070a0f 60%, #05070a 100%); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-
-/* Nav */
-.nav { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: rgba(8,12,16,0.7); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
-.brand { font-weight: 700; letter-spacing: 0.5px; }
-.accent { color: var(--accent); }
-.nav a { color: var(--muted); text-decoration: none; margin-left: 16px; transition: color .2s; }
-.nav a:hover { color: var(--text); }
-.nav .cta { color: var(--text); padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; }
-
-/* Hero */
-.hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; padding: 64px 24px; max-width: 1100px; margin: 0 auto; }
-.hero h1 { font-size: 2.4rem; margin: 0 0 12px; }
-.hero p { color: var(--muted); margin: 0 0 20px; }
-.hero-actions { display: flex; gap: 12px; }
-.btn { display: inline-block; padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border); color: var(--text); text-decoration: none; transition: transform .15s, box-shadow .15s; }
-.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-.btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #041016; border: none; }
-.btn.ghost { background: transparent; }
-.glass { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 20px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), var(--shadow); }
-.hero-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: center; }
-.stat .label { color: var(--muted); font-size: 0.9rem; }
-.stat .value { font-size: 1.6rem; font-weight: 700; }
-
-/* Sections */
-.section { padding: 56px 24px; max-width: 1100px; margin: 0 auto; }
-.section h2 { margin: 0 0 16px; font-size: 1.8rem; }
-.tags { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; list-style: none; }
-.tags li { background: #0e141b; border: 1px solid var(--border); color: var(--muted); padding: 8px 12px; border-radius: 999px; }
-
-/* Cards & grids */
-.grid { display: grid; gap: 16px; }
-.skills { grid-template-columns: repeat(4, 1fr); }
-.projects { grid-template-columns: repeat(3, 1fr); }
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); transition: transform .15s, border-color .2s; }
-.card:hover { transform: translateY(-3px); border-color: #2a3a4a; }
-
-/* Timeline */
-.timeline .item { border-left: 2px solid #1f2a36; padding-left: 16px; margin: 12px 0; }
-.meta { color: var(--muted); font-size: 0.9rem; }
-
-/* Certs */
-.certs { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.certs li { background: #0e141b; border: 1px solid var(--border); padding: 12px; border-radius: 12px; }
-
-/* Contact */
-.form label { display: grid; gap: 6px; margin-bottom: 12px; }
-input, textarea { background: #0e141b; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 10px; outline: none; }
-input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(106,227,255,0.15); }
-.footer { padding: 24px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-
-/* Dashboard */
-.dash-grid { grid-template-columns: repeat(2, 1fr); }
-.gauge { display: grid; grid-template-rows: auto 70px; gap: 12px; position: relative; }
-.gauge-ring { position: relative; width: 180px; height: 180px; margin: 0 auto; }
-.gauge svg { width: 180px; height: 180px; transform: rotate(-90deg); }
-.track { fill: none; stroke: #16202b; stroke-width: 12; }
-.progress { fill: none; stroke-width: 12; stroke-linecap: round; transition: stroke-dashoffset .4s ease; }
-.gauge-center { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
-.gauge-center .label { color: var(--muted); font-size: 0.9rem; }
-.gauge-center .value { font-size: 1.6rem; font-weight: 700; }
-.spark { width: 100%; height: 60px; background: #0e141b; border: 1px solid var(--border); border-radius: 10px; }
-.status-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.processes table { width: 100%; border-collapse: collapse; }
-.processes th, .processes td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); }
-.processes tbody tr:hover { background: #0e141b; }
-
-/* Responsive */
-@media (max-width: 980px) {
-  .hero { grid-template-columns: 1fr; }
-  .skills { grid-template-columns: repeat(2, 1fr); }
-  .projects { grid-template-columns: 1fr 1fr; }
-  .certs { grid-template-columns: 1fr 1fr; }
-  .dash-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .skills, .projects, .certs { grid-template-columns: 1fr; }
-  .nav nav { display: none; }
-}
-</style>
-</head>
-<body>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nivrashu Saini | SOC Analyst</title>
+  <link rel="stylesheet" href="style.css"/>
 
   <style>
 
-
-
-
-
-    :root {
-  --bg:#0b0f14; --card:#11161d; --text:#e6edf3; --muted:#9aa7b2;
-  --accent:#6ae3ff; --accent-2:#7cffb2; --border:#1f2a36;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
 }
-body {margin:0; background:#0b0f14; color:var(--text); font-family:Inter,sans-serif;}
-/* Header, hero, sections, cards same as before */
 
-/* Dashboard */
-.dash-grid {grid-template-columns:repeat(2,1fr);}
-.gauge {display:grid;grid-template-rows:auto 70px;gap:12px;}
-.gauge-ring {position:relative;width:180px;height:180px;margin:0 auto;}
-.gauge svg {width:180px;height:180px;transform:rotate(-90deg);}
-.track {fill:none;stroke:#16202b;stroke-width:12;}
-.progress {fill:none;stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset .4s ease;}
-.gauge-center {position:absolute;inset:0;display:grid;place-items:center;text-align:center;}
-.spark {width:100%;height:60px;background:#0e141b;border:1px solid var(--border);border-radius:10px;}
-.status-list {list-style:none;padding:0;margin:0;display:grid;gap:8px;}
-.processes table {width:100%;border-collapse:collapse;}
-.processes th, .processes td {padding:10px;border-bottom:1px solid var(--border);}
+body {
+  background: #0b0f14;
+  color: #cfd8dc;
+  line-height: 1.6;
+}
 
+/* MONITOR */
+.monitor {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: #111;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.green {
+  background: #00ff9c;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.3; }
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: #00ff9c;
+}
+
+.typing {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #8be9fd;
+}
+
+.buttons a {
+  margin: 20px 10px;
+  padding: 10px 20px;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.buttons a:hover {
+  background: #00ff9c;
+  color: #000;
+}
+
+/* CARD */
+.card {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #111827;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,255,156,0.1);
+}
+
+.card h2 {
+  color: #00ff9c;
+  margin-bottom: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 15px;
+}
+
+.grid span {
+  background: #0b0f14;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* PROJECT */
+.project {
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+
+    
   </style>
-  <!-- Header -->
-  <header class="nav">
-    <div class="brand">Yash<span class="accent">.</span>Security</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#certs">Certifications</a>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#contact" class="cta">Contact</a>
-    </nav>
-  </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>SOC Analyst—Threat Hunting & Incident Response</h1>
-      <p>I investigate alerts, reduce noise, and turn signals into action. Focus: SIEM tuning, IR playbooks, and adversary emulation.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn primary">View Projects</a>
-        <a href="assets/Yash_Resume.pdf" class="btn ghost" target="_blank" rel="noopener">Download Resume</a>
-      </div>
-    </div>
-    <div class="hero-card glass">
-      <div class="stat"><span class="label">Incidents triaged</span><span class="value">250+</span></div>
-      <div class="stat"><span class="label">Mean TTR</span><span class="value">18m</span></div>
-      <div class="stat"><span class="label">False positives reduced</span><span class="value">42%</span></div>
-    </div>
-  </section>
+<!-- SYSTEM MONITOR -->
+<div class="monitor">
+  <span class="dot green"></span> SYSTEM ONLINE
+</div>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <h2>About</h2>
-    <p>I’m Yash, a SOC analyst based in New Delhi. I specialize in high-signal detection, rapid triage, and clean handoffs to IR.</p>
-    <ul class="tags">
-      <li>SIEM: Splunk, Sentinel</li>
-      <li>EDR: Defender, CrowdStrike</li>
-      <li>Threat Intel: MISP, Sigma</li>
-      <li>Automation: KQL, Python</li>
-    </ul>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <h1>🔐 NIVRASHU SAINI</h1>
+  <p class="typing"></p>
+  <div class="buttons">
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</section>
 
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="grid skills">
-      <div class="card"><h3>Detection Engineering</h3><p>Write and tune rules, reduce noise, map to MITRE ATT&CK.</p></div>
-      <div class="card"><h3>Incident Response</h3><p>Playbooks for phishing, lateral movement, privilege abuse.</p></div>
-      <div class="card"><h3>Threat Hunting</h3><p>Beaconing patterns, rare process trees, DNS anomalies.</p></div>
-      <div class="card"><h3>Reporting & Dashboards</h3><p>Executive summaries, SOC KPIs, MTTA/MTTR trends.</p></div>
-    </div>
-  </section>
+<!-- ABOUT -->
+<section class="card">
+  <h2>About Me</h2>
+  <p>
+    Associate SOC Analyst with hands-on experience in SIEM monitoring,
+    log analysis, and threat detection. Passionate about defending systems
+    and improving blue team security.
+  </p>
+</section>
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="grid projects">
-      <article class="card project"><h3>Phishing IR Playbook</h3><p>Reduced MTTR from 45m to 20m.</p></article>
-      <article class="card project"><h3>Beacon Hunt Pack</h3><p>Caught 3 real C2 attempts in testing.</p></article>
-      <article class="card project"><h3>SIEM Noise Reduction</h3><p>42% fewer false positives.</p></article>
-    </div>
-  </section>
+<!-- SKILLS -->
+<section class="card">
+  <h2>Core Skills</h2>
+  <div class="grid">
+    <span>SIEM Monitoring</span>
+    <span>Log Analysis</span>
+    <span>Linux</span>
+    <span>Networking</span>
+    <span>Incident Triage</span>
+    <span>Threat Detection</span>
+  </div>
+</section>
 
-  <!-- Experience -->
-  <section id="experience" class="section">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="item"><h3>SOC Analyst — Company X</h3><span class="meta">2023–Present</span></div>
-      <div class="item"><h3>Security Intern — Company Y</h3><span class="meta">2022</span></div>
-    </div>
-  </section>
+<!-- TOOLS -->
+<section class="card">
+  <h2>Tools & Platforms</h2>
+  <ul>
+    <li>Splunk & ELK Stack</li>
+    <li>Wireshark, Nmap</li>
+    <li>Burp Suite</li>
+    <li>AWS Security Services</li>
+    <li>VirusTotal</li>
+  </ul>
+</section>
 
-  <!-- Certifications -->
-  <section id="certs" class="section">
-    <h2>Certifications</h2>
-    <ul class="certs">
-      <li>CompTIA Security+</li>
-      <li>Microsoft SC-200</li>
-      <li>Splunk Core Certified User</li>
-    </ul>
-  </section>
+<!-- PROJECTS -->
+<section class="card" id="projects">
+  <h2>Projects</h2>
 
-  <!-- Dashboard -->
-  <section id="dashboard" class="section">
-    <h2>System Monitoring Dashboard</h2>
-    <div class="grid dash-grid">
-      <!-- Gauges -->
-      <div class="card gauge" id="cpu">...</div>
-      <div class="card gauge" id="mem">...</div>
-      <div class="card gauge" id="disk">...</div>
-      <div class="card gauge" id="net">...</div>
-      <!-- Status -->
-      <div class="card status"><h3>System Status</h3><ul class="status-list"><li><strong>Uptime:</strong> <span id="uptime">00:00:00</span></li><li><strong>CPU Temp:</strong> <span id="temp">42°C</span></li><li><strong>Battery:</strong> <span id="battery">92%</span></li></ul></div>
-      <!-- Processes -->
-      <div class="card processes"><h3>Top Processes</h3><table><thead><tr><th>Process</th><th>CPU</th><th>RAM</th></tr></thead><tbody id="proc-body"></tbody></table></div>
-    </div>
-  </section>
+  <div class="project">
+    <h3>🔍 Network Scanning & Threat Identification</h3>
+    <p>
+      Performed SYN scans using Nmap, analyzed open ports,
+      and validated malicious IPs and URLs using VirusTotal.
+    </p>
+  </div>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <form class="card form">
-      <label>Name<input type="text" required></label>
-      <label>Email<input type="email" required></label>
-      <label>Message<textarea rows="5" required></textarea></label>
-      <button type="submit" class="btn primary">Send</button>
-    </form>
-  </section>
+  <div class="project">
+    <h3>📊 Log Analysis & Security Monitoring</h3>
+    <p>
+      Analyzed logs from SIEM tools to detect suspicious activity
+      and support incident investigation.
+    </p>
+  </div>
+</section>
 
-  <footer class="footer"><p>© 2025 Yash • Built for clarity and speed.</p></footer>
-  <script src="script.js">
+<!-- EXPERIENCE -->
+<section class="card">
+  <h2>Experience</h2>
+  <p>
+    <strong>Associate SOC Analyst</strong><br/>
+    Self-Employed | Oct 2025 – Present<br/>
+    Monitoring alerts, analyzing logs, and supporting incident response.
+  </p>
+</section>
 
-    // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
+<!-- CONTACT -->
+<section class="card" id="contact">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+  <p>LinkedIn: linkedin.com/in/yourprofile</p>
+</section>
 
-  </script>
+<footer>
+  <p>© 2026 Nivrashu Saini | SOC Analyst</p>
+</footer>
+
+<script src="script.js">
+
+
+  const text = "SOC Analyst L1 | SIEM • Log Analysis • Blue Team";
+let index = 0;
+
+function typeEffect() {
+  if (index < text.length) {
+    document.querySelector(".typing").textContent += text.charAt(index);
+    index++;
+    setTimeout(typeEffect, 80);
+  }
+}
+
+typeEffect();
+
+</script>
+  
 </body>
 </html>
