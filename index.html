@@ -231,6 +231,53 @@ section h2 {
 
 <body>
 
+<script>
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById("progress").style.width =
+    (scrollTop / height) * 100 + "%";
+});
+</script>
+
+
+  <button id="toggle">🌙</button>
+<style>
+.light {
+  background: #f8fafc;
+  color: #020617;
+}
+
+.light h1, .light h2 {
+  color: #0f172a;
+}
+
+
+  <script>
+document.getElementById("toggle").onclick = () => {
+  document.body.classList.toggle("light");
+};
+</script>
+
+
+  
+</style>
+
+  
+
+<div id="progress"></div>
+<style>
+  
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #22d3ee;
+  width: 0%;
+  z-index: 9999;
+}
+ </style>
 
   <canvas id="bg #bg {
   position: fixed;
@@ -304,6 +351,39 @@ section h2 {
         <h3>Nmap Network Scanning & Risk Analysis</h3>
         <p>Performed SYN scanning to identify open ports and insecure services.</p>
         <a href="https://github.com/Phantom000009828/Nmap-Network-Scanning-and-Risk-Analysis">View on GitHub</a>
+
+
+        <section id="siem">
+
+          <style>
+            .siem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.siem-grid img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #22d3ee;
+  transition: transform 0.3s;
+}
+
+.siem-grid img:hover {
+  transform: scale(1.05);
+}
+
+
+            
+          </style>
+  <h2>SIEM Monitoring</h2>
+
+  <div class="siem-grid">
+    <img src="images/siem-login-fail.png" alt="Login Failure Dashboard">
+    <img src="images/siem-ssh-alert.png" alt="SSH Brute Force Alert">
+  </div>
+</section>
+
       </div>
 
     </section>
