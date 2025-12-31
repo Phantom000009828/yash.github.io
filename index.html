@@ -229,7 +229,21 @@ section h2 {
 </style>
 </head>
 
+  
+
 <body>
+
+  <canvas id="network"></canvas>
+<style>
+#network {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+
+  
+</style>
 
 <script>
 window.addEventListener("scroll", () => {
@@ -308,7 +322,7 @@ document.getElementById("toggle").onclick = () => {
     <h1>Nivrashu Saini</h1>
     <p>SOC Analyst L1 Aspirant<br>Linux • Networking • Log Analysis</p>
 
-    <a href="https://github.com/Phantom000009828">GitHub</a>
+    <a href="https://github.com/Phantom000009828/yash.github.io">GitHub</a>
     <a href="https://www.linkedin.com/in/nivrashu-saini-2b880027b/overlay/about-this-profile/?trk=opento_sprofile_details&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BqmPkDNOXRvuBoWsKV8Aj1A%3D%3D">LinkedIn</a>
     <a href="sk2421473@gmail.com">Email</a>
   </div>
@@ -370,6 +384,49 @@ function type() {
   }
 }
 type();
+</script>
+
+
+  <script>
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+let nodes = Array.from({ length: 60 }, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  vx: Math.random() - 0.5,
+  vy: Math.random() - 0.5
+}));
+
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "#22d3ee";
+
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 2, 0, Math.PI*2);
+    ctx.fill();
+
+    nodes.forEach(m => {
+      const dist = Math.hypot(n.x - m.x, n.y - m.y);
+      if (dist < 120) {
+        ctx.strokeStyle = "rgba(34,211,238,0.15)";
+        ctx.beginPath();
+        ctx.moveTo(n.x, n.y);
+        ctx.lineTo(m.x, m.y);
+        ctx.stroke();
+      }
+    });
+  });
+  requestAnimationFrame(draw);
+}
+draw();
 </script>
 
 </body>
