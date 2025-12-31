@@ -1,235 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SOC Analyst Dashboard | Nivrashu Saini</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-:root{
-  --bg:#020617;
-  --panel:#020b1c;
-  --accent:#22d3ee;
-  --text:#e5e7eb;
-  --muted:#94a3b8;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  display:flex;
-  height:100vh;
-}
-
-/* ===== SIDEBAR ===== */
-.sidebar{
-  width:260px;
-  background:linear-gradient(180deg,#020617,#020b1c);
-  padding:30px;
-  border-right:1px solid rgba(34,211,238,.2);
-}
-
-.sidebar h1{
-  color:var(--accent);
-  font-size:26px;
-}
-
-.sidebar p{
-  color:var(--muted);
-  margin-top:10px;
-  font-size:14px;
-}
-
-.nav{
-  margin-top:40px;
-}
-
-.nav a{
-  display:block;
-  padding:12px;
-  margin:10px 0;
-  color:var(--text);
-  text-decoration:none;
-  border-radius:8px;
-  transition:.3s;
-}
-
-.nav a:hover{
-  background:rgba(34,211,238,.1);
-  color:var(--accent);
-}
-
-/* ===== MAIN ===== */
-.main{
-  flex:1;
-  padding:30px;
-  overflow-y:auto;
-}
-
-/* ===== TOP STATS ===== */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:var(--panel);
-  padding:20px;
-  border-radius:12px;
-  border:1px solid rgba(34,211,238,.15);
-  position:relative;
-  overflow:hidden;
-}
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(34,211,238,.15),transparent);
-  animation:scan 3s infinite;
-}
-
-@keyframes scan{
-  0%{transform:translateX(-100%)}
-  100%{transform:translateX(100%)}
-}
-
-.card h3{color:var(--muted);font-size:14px}
-.card strong{font-size:28px;color:var(--accent)}
-
-/* ===== ALERT FEED ===== */
-.alerts{
-  margin-top:40px;
-}
-
-.alert{
-  background:var(--panel);
-  padding:15px;
-  border-left:4px solid var(--accent);
-  margin-bottom:12px;
-  animation:fadeIn .6s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1}
-}
-
-/* ===== PROJECTS ===== */
-.projects{
-  margin-top:40px;
-}
-
-.project{
-  background:var(--panel);
-  padding:20px;
-  border-radius:12px;
-  margin-bottom:20px;
-  border:1px solid rgba(34,211,238,.15);
-}
-
-.project h4{color:var(--accent)}
-.project p{color:var(--muted);margin:10px 0}
-.project a{color:var(--accent);text-decoration:none}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:800px){
-  body{flex-direction:column}
-  .sidebar{width:100%;border-right:none;border-bottom:1px solid rgba(34,211,238,.2)}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yash | SOC Analyst Portfolio</title>
+  <meta name="description" content="SOC Analyst portfolio—incident response, threat hunting, SIEM dashboards, certifications, and projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <header class="nav">
+    <div class="brand">Yash<span class="accent">.</span>Security</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+  </header>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-  <h1>Nivrashu Saini</h1>
-  <p>SOC Analyst L1<br>Linux | SIEM | Threat Detection</p>
-
-  <div class="nav">
-    <a href="#">Dashboard</a>
-    <a href="#projects">Incidents</a>
-    <a href="https://www.linkedin.com/in/nivrashu-saini-2b880027b/overlay/about-this-profile/?trk=opento_sprofile_details&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BqmPkDNOXRvuBoWsKV8Aj1A%3D%3D" target="_blank">LinkedIn</a>
-    <a href="https://github.com/Phantom000009828" target="_blank">GitHub</a>
-  </div>
-</div>
-
-<!-- MAIN -->
-<div class="main">
-
-  <!-- STATS -->
-  <div class="stats">
-    <div class="card">
-      <h3>Threat Alerts</h3>
-      <strong id="alerts">12</strong>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>SOC Analyst—Threat Hunting & Incident Response</h1>
+      <p>I investigate alerts, reduce noise, and turn signals into action. Focus: SIEM tuning, IR playbooks, and adversary emulation.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="assets/Yash_Resume.pdf" class="btn ghost" target="_blank" rel="noopener">Download Resume</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>Failed Logins</h3>
-      <strong id="logins">37</strong>
+    <div class="hero-card glass">
+      <div class="stat">
+        <span class="label">Incidents triaged</span>
+        <span class="value">250+</span>
+      </div>
+      <div class="stat">
+        <span class="label">Mean TTR</span>
+        <span class="value">18m</span>
+      </div>
+      <div class="stat">
+        <span class="label">False positives reduced</span>
+        <span class="value">42%</span>
+      </div>
     </div>
-    <div class="card">
-      <h3>Open Ports</h3>
-      <strong>18</strong>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p>I’m Yash, a SOC analyst based in New Delhi. I specialize in high-signal detection, rapid triage, and clean handoffs to IR. I care about clarity—playbooks that work, dashboards that tell the truth, and automation that saves time.</p>
+    <ul class="tags">
+      <li>SIEM: Splunk, Sentinel</li>
+      <li>EDR: Defender, CrowdStrike</li>
+      <li>Threat Intel: MISP, Sigma</li>
+      <li>Automation: KQL, Python</li>
+    </ul>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="grid skills">
+      <div class="card">
+        <h3>Detection Engineering</h3>
+        <p>Write and tune rules (Sigma/KQL), reduce noise, map to MITRE ATT&CK, and validate with emulation.</p>
+      </div>
+      <div class="card">
+        <h3>Incident Response</h3>
+        <p>Playbooks for phishing, lateral movement, privilege abuse; evidence collection and timeline building.</p>
+      </div>
+      <div class="card">
+        <h3>Threat Hunting</h3>
+        <p>Hypothesis-driven hunts, beaconing patterns, rare process trees, DNS anomalies, and persistence checks.</p>
+      </div>
+      <div class="card">
+        <h3>Reporting & Dashboards</h3>
+        <p>Executive summaries, SOC KPIs, MTTA/MTTR, false positive trends, and remediation tracking.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>System Status</h3>
-      <strong>STABLE</strong>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="grid projects">
+      <article class="card project">
+        <div class="project-head">
+          <h3>Phishing IR Playbook</h3>
+          <span class="pill">IR</span>
+        </div>
+        <p>End-to-end workflow: header analysis, sandboxing, IOC extraction, user impact, and containment steps.</p>
+        <ul class="bullets">
+          <li><strong>Outcome:</strong> Reduced MTTR from 45m to 20m.</li>
+          <li><strong>Stack:</strong> Defender, MISP, Splunk, Python.</li>
+        </ul>
+        <a class="link" href="assets/phishing_playbook.pdf" target="_blank">View PDF</a>
+      </article>
+
+      <article class="card project">
+        <div class="project-head">
+          <h3>Beacon Hunt Pack</h3>
+          <span class="pill">Hunt</span>
+        </div>
+        <p>KQL/Sigma rules for periodic DNS, jittered intervals, rare user-agent strings, and suspicious C2 patterns.</p>
+        <ul class="bullets">
+          <li><strong>Outcome:</strong> Caught 3 real C2 attempts in testing.</li>
+          <li><strong>Stack:</strong> Sentinel, Sigma, Zeek logs.</li>
+        </ul>
+        <a class="link" href="https://github.com/yourusername/beacon-hunt" target="_blank">Repo</a>
+      </article>
+
+      <article class="card project">
+        <div class="project-head">
+          <h3>SIEM Noise Reduction</h3>
+          <span class="pill">Detection</span>
+        </div>
+        <p>Rule deduplication, thresholding, and context enrichment to cut false positives while preserving coverage.</p>
+        <ul class="bullets">
+          <li><strong>Outcome:</strong> 42% fewer false positives.</li>
+          <li><strong>Stack:</strong> Splunk, Python, MITRE ATT&CK.</li>
+        </ul>
+        <a class="link" href="assets/siem_noise_case_study.pdf" target="_blank">Case Study</a>
+      </article>
     </div>
-  </div>
+  </section>
 
-  <!-- ALERT FEED -->
-  <div class="alerts" id="alertsFeed">
-    <h2 style="color:var(--accent);margin-bottom:15px">Live SIEM Alerts</h2>
-  </div>
-
-  <!-- PROJECTS -->
-  <div class="projects" id="projects">
-    <h2 style="color:var(--accent);margin-bottom:15px">Investigations</h2>
-
-    <div class="project">
-      <h4>SSH Brute Force Detection</h4>
-      <p>Analyzed Linux auth logs and detected repeated SSH login failures.</p>
-      <a href="https://github.com/Phantom000009828/soc-analyst-linux-log-analysis" target="_blank">View GitHub</a>
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="item">
+        <h3>SOC Analyst — Company X</h3>
+        <span class="meta">2023–Present • New Delhi</span>
+        <p>Tier-2 triage, IR handoffs, detection tuning, and weekly threat hunts. Built KPI dashboard for leadership.</p>
+      </div>
+      <div class="item">
+        <h3>Security Intern — Company Y</h3>
+        <span class="meta">2022 • Remote</span>
+        <p>Assisted in phishing response, wrote Sigma rules, and documented playbooks for common attack paths.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="project">
-      <h4>Nmap Network Scanning & Risk Analysis</h4>
-      <p>Performed SYN scans and assessed insecure services.</p>
-      <a href="https://github.com/Phantom000009828/Nmap-Network-Scanning-and-Risk-Analysis" target="_blank">View GitHub</a>
+  <section id="certs" class="section">
+    <h2>Certifications</h2>
+    <ul class="certs">
+      <li><strong>CompTIA Security+</strong> — 2024</li>
+      <li><strong>Microsoft SC-200</strong> — 2025</li>
+      <li><strong>Splunk Core Certified User</strong> — 2024</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="card">
+        <h3>Let’s collaborate</h3>
+        <p>Open to SOC roles, detection engineering, and IR projects. Prefer clear scopes and measurable outcomes.</p>
+      </div>
+      <form class="card form" name="contact" netlify>
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="btn primary">Send</button>
+      </form>
     </div>
-  </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/nivrashu-saini-2b880027b/overlay/about-this-profile/?trk=opento_sprofile_details&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BqmPkDNOXRvuBoWsKV8Aj1A%3D%3D" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Phantom000009828" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:sk2421473@gmail.com.com">Email</a>
+    </div>
+  </section>
 
-</div>
+  <footer class="footer">
+    <p>© 2025 Yash • Built for clarity and speed.</p>
+  </footer>
 
-<script>
-const alerts=[
-  "Brute force detected from 192.168.1.10",
-  "Multiple failed SSH logins",
-  "Port scan detected on 22/tcp",
-  "Suspicious authentication behavior",
-  "SIEM correlation rule triggered"
-];
-
-const feed=document.getElementById("alertsFeed");
-let count=12;
-
-setInterval(()=>{
-  const div=document.createElement("div");
-  div.className="alert";
-  div.innerText="[ALERT] "+alerts[Math.floor(Math.random()*alerts.length)];
-  feed.appendChild(div);
-
-  count++;
-  document.getElementById("alerts").innerText=count;
-  document.getElementById("logins").innerText=Math.floor(Math.random()*50+20);
-
-  if(feed.children.length>6) feed.removeChild(feed.children[1]);
-},2000);
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
